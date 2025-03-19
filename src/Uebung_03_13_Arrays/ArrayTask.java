@@ -1,4 +1,4 @@
-package Uebung_13_3_Arrays;
+package Uebung_03_13_Arrays;
 
 import java.util.Arrays;
 import java.util.Scanner;

@@ -1,4 +1,4 @@
-package Uebung_10March;
+package Uebung_03_10_Schleife;
 
 import java.util.Scanner;
 

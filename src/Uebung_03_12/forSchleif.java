@@ -1,4 +1,4 @@
-package Uebung_12M;
+package Uebung_03_12;
 
 import java.util.Scanner;
 

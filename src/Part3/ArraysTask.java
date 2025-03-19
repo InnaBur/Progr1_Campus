@@ -8,6 +8,7 @@ public class ArraysTask {
 
   public static void main(String[] args) {
 
+    Array1();
     ArrMax();
     ArrStrLang();
     ArrSumm();
@@ -19,10 +20,25 @@ public class ArraysTask {
     ArrDurch();
   }
 
+  //Diese Methode erzeugt ein Array von 10 Ganzzahlen und gibt diese anschließend, Element für Element , in der Konsole aus
+  public static void Array1() {
+    int[] arr = new int[10];
+    Random r = new Random();
+
+    //Befuellen des Arrays mit Random-int-Zahlen
+    for (int el: arr) {
+      el = r.nextInt(0, 101);
+      System.out.print(el + " ");
+    }
+    System.out.println();
+  }
 
   //Diese Methode findet und gibt das größte Element in einem Array zurück
   public static void ArrMax() {
     double[] arr = {2.5, 3.0, 7.8, -45.6, 12.12};
+
+    Arrays.sort(arr);
+    System.out.println("SORT!!" + Arrays.toString(arr));
     double max = arr[0];
     for (double i : arr) {
       if (i > max) {
@@ -40,13 +56,13 @@ public class ArraysTask {
     String [] arr = {"Hello", "World", "Montag", "Hey", "Dienstag", "Mittwoch","Sonntag", "Freitag"};
     int lang = 0;
 
-    for (int j = 0; j < arr.length; j++) {
-      for (int i = 0; i < arr[j].length(); i++) {
-        lang += 1;
+      for (String s : arr) {
+          for (int i = 0; i < s.length(); i++) {
+              lang += 1;
+          }
+          System.out.println("Lang von Wort " + s + " ist " + lang);
+          lang = 0;
       }
-      System.out.println("Lang von Wort " + arr[j] + " ist " + lang);
-      lang = 0;
-    }
   }
 
   //Diese Methode berechnet eine Summe aller Elemente im Array
@@ -68,7 +84,7 @@ public class ArraysTask {
     Random r = new Random();
 
     for (int i = 0; i < randomArr.length; i++) {
-      randomArr[i] = r.nextDouble(1, 100);
+      randomArr[i] = r.nextDouble(1, 101);
       System.out.println(i + " Element des Arrays ist " + randomArr[i]);
     }
   }
@@ -80,10 +96,10 @@ public class ArraysTask {
     Random r = new Random();
 
     System.out.println("Ein gerades Element des Arrays ist: ");
-    for (int i: randomArr) {
-      i = r.nextInt();
-      if (i % 2 == 0) {
-        System.out.print(i + " ");
+    for (int i = 0; i < randomArr.length; i++) {
+      randomArr[i] = r.nextInt();
+      if (randomArr[i] % 2 == 0) {
+        System.out.print(randomArr[i] + " ");
       }
     }
   }
@@ -97,20 +113,22 @@ public class ArraysTask {
     int count = 0;
 
     System.out.println();
-    for (String s: arr) {
-      if (s.toLowerCase().charAt(0) == ch) {
-        System.out.println("Das Wort, das mit " + ch + " beginnt: " + s);
+    for (String wort: arr) {
+      if (wort.toLowerCase().charAt(0) == ch) {
+        System.out.println("Das Wort, das mit " + ch + " beginnt: " + wort);
         count++;
       }
       }
+
+    //neues Array, um Resultat als Array zeigen
     String [] arr2 = new String[count];
     int j = 0;
-    for (int i = 0; i <arr.length; i++) {
-      if (arr[i].toLowerCase().charAt(0) == ch) {
-       arr2[j] = arr[i];
-               j++;
+      for (String s : arr) {
+          if (s.toLowerCase().charAt(0) == ch) {
+              arr2[j] = s;
+              j++;
+          }
       }
-    }
 
     System.out.println("Array, in dem alle Woerte aus " + ch + " beginnen ist - " + Arrays.toString(arr2));
   }
