@@ -2,33 +2,21 @@ package Tamagochi;
 
 public class Spielplatz {
 
-  int row;
-  int column;
+  private static final int spielBreit = 7;
+  private static final int spielHoch = 5;
 
-  public Spielplatz(int row, int column) {
-    this.row = row;
-    this.column = column;
-  }
+ int width;
+ int height;
 
   public Spielplatz() {
+    this.width = spielBreit;
+    this.height = spielHoch;
   }
+
 
   public void spielfieldZeichnen(int x, int y) {
-    for (int i = 0; i < row; i++) {
-      for (int j = 0; j < column; j++) {
-        if ((i == x) && (j == y)) {
-          System.out.print("O ");
-        } else {
-          System.out.print("* ");
-        }
-      }
-      System.out.println();
-    }
-  }
-
-  public void spielfieldUpdate(int x, int y) {
-    for (int i = 0; i < row; i++) {
-      for (int j = 0; j < column; j++) {
+    for (int i = 0; i < height; i++) {
+      for (int j = 0; j < width; j++) {
         if ((i == x) && (j == y)) {
           System.out.print("O ");
         } else {

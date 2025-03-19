@@ -1,23 +1,31 @@
 package Tamagochi;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class TamagochiMain {
   public static void main(String[] args) {
 
-    boolean isFertig = true;
-    Spielplatz spielplatz = new Spielplatz(5, 7);
-    Tamagochi tamagochi = new Tamagochi(3, 4);
-    tamagochi.futterstand = 5;
+    SpielController spielController = new SpielController();
+    Spielplatz spielplatz = new Spielplatz();
+    Random random = new Random();
+
+    int x = random.nextInt(0, 6);
+    int y = random.nextInt(0, 8);
+    Tamagochi tamagochi = new Tamagochi(x, y);
+
+    Scanner scanner = new Scanner(System.in);
+    System.out.println("Geben Sie bitte den Futterstand");
+    tamagochi.futterstand = scanner.nextInt();
 
     spielplatz.spielfieldZeichnen(tamagochi.x, tamagochi.y);
 
     do {
-      Scanner scanner = new Scanner(System.in);
+      System.out.println("Geben Sie bitte die Richtung. Sie können r, l, u, o (rechts, links, unten, oben) eingeben \n");
       String eingabe = scanner.next();
       tamagochi.bewegen(eingabe);
-   //   spielplatz.spielfieldZeichnen(x, y);
-
-    } while (isFertig);
+      System.out.println("X = " + tamagochi.getX());
+      System.out.println("Y = " + tamagochi.getY());
+    } while (!spielController.istSpielFertig(tamagochi));
   }
 }
