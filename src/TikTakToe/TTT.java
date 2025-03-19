@@ -30,20 +30,35 @@ public class TTT {
       }
 
       for (int i = 0; i < brettAktuell.length; i++) {
-        for (int j = 0; j < 1; j++) {
-          if ((brettAktuell[i][j] == brettAktuell[i][j+1]) &&  (brettAktuell[i][j+1] == brettAktuell [i][j+2]) && (brettAktuell[i][j+1]!= '*')){
-            System.out.println("Du hast gewonnen");
-            isFertig = false;
-          }
+        for (int j = 0; j < brettAktuell[i].length; j++) {
+          if (j == 0) {
+            if ((brettAktuell[i][j] == brettAktuell[i][j + 1])
+                && (brettAktuell[i][j + 1] == brettAktuell[i][j + 2])
+                && (brettAktuell[i][j + 1] != '*')) {
+              System.out.println("1 Du hast gewonnen");
+              isFertig = false;
+}
+            }
         }
       }
+
+//      for (int j = 0; j < 1; j++) {
+//        for (int i = 0; i < brettAktuell[j].length; i++) {
+//          if ((brettAktuell[i][j] == brettAktuell[i][j+1]) &&  (brettAktuell[i][j+1] == brettAktuell [i][j+2]) && (brettAktuell[i][j+1]!= '*')){
+//            System.out.println("2 Du hast gewonnen");
+//            isFertig = false;
+//          }
+//        }
+
 
       int i = 0;
       int j = 0;
        if((brettAktuell[i][j] == brettAktuell[i+1][j+1]) && (brettAktuell[i][j] == brettAktuell[i+2][j+2]) && (brettAktuell[i][j+1]!= '*')){
-        System.out.println("Du hast gewonnen");
+        System.out.println(" 3 Du hast gewonnen");
         isFertig = false;
       }
+
+
 
       if (isFertig == false) {
         break;
