@@ -2,17 +2,18 @@ package Tamagochi;
 
 public class SpielController {
 
-  boolean istFertig = false;
+  boolean istNotGewonnen = true;
+  boolean istSpielNotFertig = true;
 
-  public boolean istSpielFertig(Tamagochi tamagochi) {
+  public boolean istSpielerGewonnen(Tamagochi tamagochi) {
 
     if (tamagochi.getX() == 4 && tamagochi.getY() == 0) {
       System.out.println("You win!!!");
-      istFertig = true;
+      istNotGewonnen = false;
     } else if (tamagochi.futterstand == 0) {
-      System.out.println("Keine Essen mehr!");
-      istFertig = true;
+      System.out.println("Keine Essen mehr! Mochten Sie futtern?");
     }
-    return istFertig;
+    return istNotGewonnen;
   }
+
 }

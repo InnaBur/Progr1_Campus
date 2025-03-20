@@ -10,22 +10,42 @@ public class TamagochiMain {
     Spielplatz spielplatz = new Spielplatz();
     Random random = new Random();
 
-    int x = random.nextInt(0, 6);
-    int y = random.nextInt(0, 8);
+    int x = random.nextInt(0, 5);
+    int y = random.nextInt(0, 7);
     Tamagochi tamagochi = new Tamagochi(x, y);
-
     Scanner scanner = new Scanner(System.in);
-    System.out.println("Geben Sie bitte den Futterstand");
-    tamagochi.futterstand = scanner.nextInt();
 
     spielplatz.spielfieldZeichnen(tamagochi.x, tamagochi.y);
 
     do {
-      System.out.println("Geben Sie bitte die Richtung. Sie können r, l, u, o (rechts, links, unten, oben) eingeben \n");
-      String eingabe = scanner.next();
-      tamagochi.bewegen(eingabe);
-      System.out.println("X = " + tamagochi.getX());
-      System.out.println("Y = " + tamagochi.getY());
-    } while (!spielController.istSpielFertig(tamagochi));
+      System.out.println("Deine Futterstand ist " + tamagochi.futterstand +"\n Waehlen Sie bitte aus: 1. Bewegen 2. Fuettern 3. Spiel Beenden");
+
+      try {
+        int  auswahl = scanner.nextInt();
+
+      switch (auswahl) {
+        case 1:
+          System.out.println(
+              "Geben Sie bitte die Richtung. Sie können r, l, u, o (rechts, links, unten, oben) eingeben \n");
+          String eingabe = scanner.next();
+          tamagochi.bewegen(eingabe);
+          break;
+        case 2: tamagochi.futtern();
+        break;
+        case 3:
+          spielController.istSpielNotFertig = false;
+          System.out.println( "Spiel ist beendet");
+          break;
+        default:
+          System.out.println("Wrong Eingabe");
+          break;
+      }
+      }
+      catch (Exception e){
+        System.out.println("Ungültige Eingabe! Bitte geben Sie eine Zahl ein.");
+        scanner.next();
+        continue;
+      }
+    } while (spielController.istSpielNotFertig);
   }
 }

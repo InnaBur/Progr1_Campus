@@ -1,21 +1,27 @@
 package Tamagochi;
 
 import java.util.Random;
+import java.util.Scanner;
 
 public class Tamagochi {
 
   private static final int spielBreit = 7;
   private static final int spielHoch = 5;
   Spielplatz spielplatz = new Spielplatz();
+  SpielController spielController = new SpielController();
+  Random random = new Random();
   int x;
   int y;
   int futterstand;
 
-  public Tamagochi() {}
 
   public Tamagochi(int x, int y) {
     this.x = x;
     this.y = y;
+    this.futterstand = random.nextInt(1, 11);
+  }
+
+  public Tamagochi() {
   }
 
   public void bewegen(String richtung) {
@@ -36,6 +42,17 @@ public class Tamagochi {
       System.out.println("Falsche eingabe oder sie sind in der Grenze");
     }
     spielplatz.spielfieldZeichnen(x, y);
+    boolean isWin = spielController.istSpielerGewonnen(this);
+
+  }
+
+  public void futtern() {
+    Scanner scanner = new Scanner(System.in);
+    System.out.println("Geben Sie bitte den Futterstand");
+    futterstand = scanner.nextInt();
+    if (futterstand > 10) {
+      futterstand = 10;
+    }
   }
 
   public int getX() {
