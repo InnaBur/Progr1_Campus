@@ -1,4 +1,4 @@
-package Tamagochi;
+package Tamagochi_old;
 
 public class SpielController {
 

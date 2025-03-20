@@ -7,7 +7,7 @@ public class Ausrufezeichen {
     Random random = new Random();
     int x_Point;
     int y_Point;
-    Tamagochi tamagochi;
+    Tamagotschi tamagochi;
 
     public Ausrufezeichen() {
        aktualisierePosition();
@@ -21,7 +21,7 @@ public class Ausrufezeichen {
     }
 
     private void aktualisierePosition() {
-        this.x_Point = random.nextInt(5);
-        this.y_Point = random.nextInt(7);
+        x_Point = random.nextInt(5);
+        y_Point = random.nextInt(7);
     }
 }

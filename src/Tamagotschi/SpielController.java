@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class SpielController {
   Spielplatz spielplatz = new Spielplatz();
 
-  Tamagochi tamagochi = new Tamagochi();
+  Tamagotschi tamagochi = new Tamagotschi();
   Ausrufezeichen ausrufezeichen = new Ausrufezeichen();
   boolean istNotGewonnen = true;
   boolean istSpielNotFertig = true;
@@ -58,7 +58,7 @@ public class SpielController {
             && tamagochi.y == ausrufezeichen.y_Point) {
       ausrufezeichen.ueberpruefenUndAktualisieren(tamagochi.x, tamagochi.y);
       System.out.println("Sie haben gewonnen!");
-      punkte+= 1;
+      punkte += 1;
       System.out.println("Sie haben " + punkte + " Punkten");
     }
   }

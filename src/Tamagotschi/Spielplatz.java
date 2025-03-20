@@ -1,7 +1,5 @@
 package Tamagotschi;
 
-import java.util.Random;
-
 public class Spielplatz {
 
   private static final int spielBreit = 7;
@@ -14,21 +12,18 @@ public class Spielplatz {
     this.height = spielHoch;
   }
 
-
-
-  public void neuenSpielfieldZeichnen(int x, int y,  int xP, int yP) {
-
-    for (int i = 0; i < height; i++) {
-      for (int j = 0; j < width; j++) {
-        if ((i == x) && (j == y)) {
-          System.out.print("O ");
-        } else if ((i == xP) && (j == yP)) {
-          System.out.print("! ");
-        } else {
-          System.out.print("* ");
+  public void neuenSpielfieldZeichnen(int x, int y, int xP, int yP) {
+      for (int i = 0; i < height; i++) {
+        for (int j = 0; j < width; j++) {
+          if ((i == x) && (j == y)) {
+            System.out.print("O ");
+          } else if ((i == xP) && (j == yP)) {
+            System.out.print("! ");
+          } else {
+            System.out.print("* ");
+          }
         }
+        System.out.println();
       }
-      System.out.println();
     }
-  }
 }
