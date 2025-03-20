@@ -10,19 +10,25 @@ public class Tamagochi {
   Spielplatz spielplatz = new Spielplatz();
   SpielController spielController = new SpielController();
   Random random = new Random();
+  Ausrufezeichen ausrufezeichen = new Ausrufezeichen();
   int x;
   int y;
   int futterstand;
 
+  //  public Tamagochi(int x, int y) {
+  //    this.x = x;
+  //    this.y = y;
+  //    this.futterstand = random.nextInt(1, 11);
+  //  }
 
-  public Tamagochi(int x, int y) {
-    this.x = x;
-    this.y = y;
+  public Tamagochi() {
+    x = random.nextInt(0, 5);
+    y = random.nextInt(0, 7);
     this.futterstand = random.nextInt(1, 11);
   }
 
-  public Tamagochi() {
-  }
+  //  public Tamagochi() {
+  //  }
 
   public void bewegen(String richtung) {
     if (futterstand > 0) {
@@ -32,18 +38,14 @@ public class Tamagochi {
     if ((richtung.equals("r")) && y != spielBreit - 1) {
       y += 1;
     } else if (richtung.equals("l") && y != 0) {
-      y -=1;
+      y -= 1;
     } else if (richtung.equals("u") && x != spielHoch - 1) {
-      x +=1;
+      x += 1;
     } else if (richtung.equals("o") && x != 0) {
-      x -=1;
-    }
-    else {
+      x -= 1;
+    } else {
       System.out.println("Falsche eingabe oder sie sind in der Grenze");
     }
-    spielplatz.spielfieldZeichnen(x, y);
-    boolean isWin = spielController.istSpielerGewonnen(this);
-
   }
 
   public void futtern() {

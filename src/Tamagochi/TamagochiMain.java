@@ -8,14 +8,13 @@ public class TamagochiMain {
 
     SpielController spielController = new SpielController();
     Spielplatz spielplatz = new Spielplatz();
-    Random random = new Random();
 
-    int x = random.nextInt(0, 5);
-    int y = random.nextInt(0, 7);
-    Tamagochi tamagochi = new Tamagochi(x, y);
+    Tamagochi tamagochi = new Tamagochi();
+    Ausrufezeichen ausrufezeichen = new Ausrufezeichen();
     Scanner scanner = new Scanner(System.in);
 
-    spielplatz.spielfieldZeichnen(tamagochi.x, tamagochi.y);
+    spielplatz.neuenSpielfieldZeichnen(
+        tamagochi.x, tamagochi.y, ausrufezeichen.x_Point, ausrufezeichen.y_Point);
 
     do {
       System.out.println("Deine Futterstand ist " + tamagochi.futterstand +"\n Waehlen Sie bitte aus: 1. Bewegen 2. Fuettern 3. Spiel Beenden");
@@ -29,6 +28,12 @@ public class TamagochiMain {
               "Geben Sie bitte die Richtung. Sie können r, l, u, o (rechts, links, unten, oben) eingeben \n");
           String eingabe = scanner.next();
           tamagochi.bewegen(eingabe);
+            if (tamagochi.x == ausrufezeichen.x_Point
+                && tamagochi.y == ausrufezeichen.y_Point) {
+              ausrufezeichen.ueberpruefenUndAktualisieren(tamagochi.x, tamagochi.y);
+            System.out.println("Sie haben gewonnen!");
+          }
+          spielplatz.neuenSpielfieldZeichnen(tamagochi.x, tamagochi.y, ausrufezeichen.x_Point, ausrufezeichen.y_Point);
           break;
         case 2: tamagochi.futtern();
         break;
