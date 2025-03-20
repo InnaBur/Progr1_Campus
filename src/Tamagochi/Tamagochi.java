@@ -51,7 +51,8 @@ public class Tamagochi {
   public void futtern() {
     Scanner scanner = new Scanner(System.in);
     System.out.println("Geben Sie bitte den Futterstand");
-    futterstand = scanner.nextInt();
+    int input  = scanner.nextInt();
+    futterstand = futterstand + input;
     if (futterstand > 10) {
       futterstand = 10;
     }
